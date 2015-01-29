@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.maximilien.course2.MainActivity"
+            android:name=".PersonListActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,8 +17,14 @@
             </intent-filter>
         </activity>
 
-        <meta-data android:name="roboguice.modules"
+        <meta-data
+            android:name="roboguice.modules"
             android:value="com.example.maximilien.course2.complexlist.PersonModule" />
+
+        <activity
+            android:name=".PersonDetailActivity"
+            android:label="@string/title_activity_person_detail" >
+        </activity>
     </application>
 
 </manifest>

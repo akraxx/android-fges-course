@@ -6,8 +6,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 
-import org.roboguice.shaded.goole.common.collect.ImmutableList;
-
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,8 +21,10 @@ public class PersonModule extends AbstractModule {
     @Provides
     @Singleton
     public List<Person> getPersonList() {
-        return ImmutableList.of(
-                new Person("Jean", "Marc", Color.BLUE),
-                new Person("John", "Doe", Color.RED));
+        ArrayList<Person> persons = new ArrayList<>();
+        persons.add(new Person("Jean", "Marc", Color.BLUE));
+        persons.add(new Person("John", "Doe", Color.RED));
+        persons.add(new Person("Juan", "Marco", Color.YELLOW));
+        return persons;
     }
 }

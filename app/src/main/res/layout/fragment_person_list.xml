@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:gravity="top">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add a new item"
+        android:id="@+id/addpersonbutton"
+        android:layout_gravity="center_horizontal" />
+
+    <GridView
+        android:id="@+id/mylistview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="1"/>
+
+</LinearLayout>

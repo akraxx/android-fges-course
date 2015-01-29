@@ -1,14 +1,12 @@
 package com.example.maximilien.course2.complexlist;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.maximilien.course2.R;
-import com.google.inject.Inject;
 
 import java.util.List;
 
@@ -21,7 +19,6 @@ public class PersonListAdapter extends BaseAdapter {
     private Context context;
     private List<Person> dataSource;
 
-    @Inject
     public PersonListAdapter(Context context, List<Person> dataSource) {
         this.context = context;
         this.dataSource = dataSource;
@@ -44,18 +41,30 @@ public class PersonListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        ViewHolder holder;
-        if (view != null) {
-            holder = (ViewHolder) view.getTag();
-        } else {
-            view = LayoutInflater.from(context).inflate(R.layout.person_item, null);
-            holder = new ViewHolder(view);
-            view.setTag(holder);
+//        ViewHolder holder;
+//        if (view != null) {
+//            holder = (ViewHolder) view.getTag();
+//        } else {
+//            view = LayoutInflater.from(context).inflate(R.layout.person_item, null);
+//            holder = new ViewHolder(view);
+//            view.setTag(holder);
+//        }
+//
+//        holder.updateView(dataSource.get(position));
+//
+//        return view;
+        View cellView = view;
+        Person person = dataSource.get(position);
+        PersonItemViewHolder viewHolder;
+        if(cellView == null) {
+            viewHolder = new PersonItemViewHolder(context);
+            cellView = viewHolder.getView();
+            cellView.setTag(viewHolder);
         }
 
-        holder.updateView(dataSource.get(position));
-
-        return view;
+        viewHolder = (PersonItemViewHolder) cellView.getTag();
+        viewHolder.updateView(person);
+        return cellView;
     }
 
     static class ViewHolder extends SuperViewHolder {
