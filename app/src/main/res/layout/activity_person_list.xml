@@ -3,11 +3,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <fragment
-        android:id="@+id/person_list"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:name="com.example.maximilien.course.PersonListFragment"
-        android:orientation="horizontal" />
+   <include layout="@layout/toolbar" />
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <fragment
+            android:id="@+id/person_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:name="com.example.maximilien.course.PersonListFragment"
+            android:orientation="horizontal" />
+
+        <fragment
+            android:id="@+id/fragment_drawer"
+            android:name="com.example.maximilien.course.DrawerFragment"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|start" />
+    </android.support.v4.widget.DrawerLayout>
 
 </LinearLayout>
