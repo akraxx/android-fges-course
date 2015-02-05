@@ -1,4 +1,4 @@
-package com.example.maximilien.course2.complexlist;
+package com.example.maximilien.course.complexlist;
 
 import android.content.Context;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.maximilien.course2.R;
+import com.example.maximilien.course.R;
 
 import java.util.List;
 

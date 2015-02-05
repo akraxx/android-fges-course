@@ -1,15 +1,13 @@
-package com.example.maximilien.course2;
+package com.example.maximilien.course;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.GridView;
 import android.widget.TextView;
 
-import com.example.maximilien.course2.complexlist.Person;
+import com.example.maximilien.course.complexlist.Person;
 
 
 public class PersonDetailFragment extends Fragment {

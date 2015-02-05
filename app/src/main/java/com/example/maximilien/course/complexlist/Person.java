@@ -1,9 +1,7 @@
-package com.example.maximilien.course2.complexlist;
+package com.example.maximilien.course.complexlist;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

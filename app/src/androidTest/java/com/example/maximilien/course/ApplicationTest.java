@@ -1,4 +1,4 @@
-package com.example.maximilien.course2;
+package com.example.maximilien.course;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,10 +1,9 @@
-package com.example.maximilien.course2;
+package com.example.maximilien.course;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,13 +13,11 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.Toast;
 
-import com.example.maximilien.course2.complexlist.Person;
-import com.example.maximilien.course2.complexlist.PersonListAdapter;
+import com.example.maximilien.course.complexlist.Person;
+import com.example.maximilien.course.complexlist.PersonListAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 

@@ -7,7 +7,7 @@
         android:id="@+id/person_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:name="com.example.maximilien.course2.PersonListFragment"
+        android:name="com.example.maximilien.course.PersonListFragment"
         android:orientation="horizontal" />
 
 </LinearLayout>

@@ -1,11 +1,11 @@
-package com.example.maximilien.course2.complexlist;
+package com.example.maximilien.course.complexlist;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.maximilien.course2.R;
+import com.example.maximilien.course.R;
 
 /**
  * Created by Maximilien on 29/01/2015.

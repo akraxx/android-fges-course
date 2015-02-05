@@ -1,4 +1,4 @@
-package com.example.maximilien.course2.complexlist;
+package com.example.maximilien.course.complexlist;
 
 import android.graphics.Color;
 

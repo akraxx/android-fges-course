@@ -1,4 +1,4 @@
-package com.example.maximilien.course2;
+package com.example.maximilien.course;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;

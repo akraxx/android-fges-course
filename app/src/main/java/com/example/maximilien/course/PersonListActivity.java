@@ -1,4 +1,4 @@
-package com.example.maximilien.course2;
+package com.example.maximilien.course;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.maximilien.course2.complexlist.Person;
+import com.example.maximilien.course.complexlist.Person;
 
 public class PersonListActivity extends ActionBarActivity implements PersonListFragment.ListCallBack {
     private boolean twoPane;
