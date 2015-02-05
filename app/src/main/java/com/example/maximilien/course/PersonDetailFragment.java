@@ -1,7 +1,6 @@
 package com.example.maximilien.course;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +16,6 @@ public class PersonDetailFragment extends Fragment {
     public static final String ARG_PERSON = "PERSON_KEY";
 
     private Person mPerson;
-
-
 
     public PersonDetailFragment() {
         // Required empty public constructor
@@ -56,15 +53,4 @@ public class PersonDetailFragment extends Fragment {
 
         return view;
     }
-
-//    @Override
-//    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//
-//        Bundle args = getArguments();
-//
-//        if(args != null) {
-//            Person person = args.getParcelable(ARG_PERSON);
-//        }
-//    }
 }

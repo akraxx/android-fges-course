@@ -21,10 +21,6 @@
             android:name="roboguice.modules"
             android:value="com.example.maximilien.course2.complexlist.PersonModule" />
 
-        <activity
-            android:name="com.example.maximilien.course.PersonDetailActivity"
-            android:label="@string/title_activity_person_detail" >
-        </activity>
     </application>
 
 </manifest>

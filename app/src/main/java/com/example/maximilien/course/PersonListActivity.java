@@ -1,23 +1,16 @@
 package com.example.maximilien.course;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.maximilien.course.complexlist.Person;
-
-public class PersonListActivity extends ActionBarActivity implements PersonListFragment.ListCallBack {
-    private boolean twoPane;
+public class PersonListActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person_list);
-        if(findViewById(R.id.person_detail_container) != null) {
-            twoPane = true;
-        }
 
     }
 
@@ -46,22 +39,5 @@ public class PersonListActivity extends ActionBarActivity implements PersonListF
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onItemSelected(Person person) {
-        if(twoPane) {
-            Bundle arguments = new Bundle();
-            arguments.putParcelable(PersonDetailFragment.ARG_PERSON, person);
-            PersonDetailFragment fragment = new PersonDetailFragment();
-            fragment.setArguments(arguments);
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.person_detail_container, fragment)
-                    .commit();
-        } else {
-            Intent intent = new Intent(this, PersonDetailActivity.class);
-            intent.putExtra(PersonDetailFragment.ARG_PERSON, person);
-            startActivity(intent);
-        }
     }
 }
