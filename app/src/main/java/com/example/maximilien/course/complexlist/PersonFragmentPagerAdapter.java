@@ -29,4 +29,9 @@ public class PersonFragmentPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return dataSource.size();
     }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return dataSource.get(position).getFirstName();
+    }
 }

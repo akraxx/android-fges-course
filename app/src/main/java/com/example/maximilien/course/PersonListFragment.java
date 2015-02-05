@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 
+import com.example.maximilien.course.common.view.SlidingTabLayout;
 import com.example.maximilien.course.complexlist.Person;
 import com.example.maximilien.course.complexlist.PersonFragmentPagerAdapter;
 import com.example.maximilien.course.complexlist.PersonListAdapter;
@@ -34,6 +35,7 @@ public class PersonListFragment extends Fragment {
     private Button mAddPersonButton;
     private Button mNextPerson;
     private Button mPrevPerson;
+    private SlidingTabLayout slidingTabLayout;
 
     private ArrayList<Person> personList = new ArrayList<>();
 
@@ -62,7 +64,7 @@ public class PersonListFragment extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_person_list, container, false);
         viewPager = (ViewPager) view.findViewById(R.id.view_pager);
-
+        slidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
 //        mListView = (GridView) view.findViewById(R.id.mylistview);
         mAddPersonButton = (Button) view.findViewById(R.id.addpersonbutton);
         mNextPerson = (Button) view.findViewById(R.id.next_button);
@@ -70,6 +72,7 @@ public class PersonListFragment extends Fragment {
 
         adapter = new PersonFragmentPagerAdapter(getChildFragmentManager(), personList);
         viewPager.setAdapter(adapter);
+        slidingTabLayout.setViewPager(viewPager);
 
         mNextPerson.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +95,18 @@ public class PersonListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 openAlert(v);
+            }
+        });
+
+        slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
+            @Override
+            public int getIndicatorColor(int position) {
+                return personList.get(position).getFavoriteColor();
+            }
+
+            @Override
+            public int getDividerColor(int position) {
+                return Color.GRAY;
             }
         });
 
@@ -119,6 +134,7 @@ public class PersonListFragment extends Fragment {
 
                 personList.add(new Person(firstname.getText().toString(), lastname.getText().toString(), color));
                 adapter.notifyDataSetChanged();
+                slidingTabLayout.setViewPager(viewPager);
                 viewPager.setCurrentItem(personList.size()-1);
             }
         });
