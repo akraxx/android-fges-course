@@ -1,6 +1,7 @@
 package com.example.maximilien.course;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +14,24 @@ import com.example.maximilien.course.complexlist.Person;
 public class PersonDetailFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    public static final String ARG_PERSON = "person_id";
+    public static final String ARG_PERSON = "PERSON_KEY";
 
-    // TODO: Rename and change types of parameters
     private Person mPerson;
+
+
 
     public PersonDetailFragment() {
         // Required empty public constructor
+    }
+
+    public static PersonDetailFragment newInstance(Person person) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(ARG_PERSON, person);
+
+        PersonDetailFragment fragment = new PersonDetailFragment();
+        fragment.setArguments(bundle);
+
+        return fragment;
     }
 
     @Override
@@ -44,4 +56,15 @@ public class PersonDetailFragment extends Fragment {
 
         return view;
     }
+
+//    @Override
+//    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//
+//        Bundle args = getArguments();
+//
+//        if(args != null) {
+//            Person person = args.getParcelable(ARG_PERSON);
+//        }
+//    }
 }

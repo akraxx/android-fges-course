@@ -4,20 +4,44 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="15px"
     android:gravity="top">
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add a new item"
+        android:text="ADD A NEW ITEM"
         android:id="@+id/addpersonbutton"
         android:layout_gravity="center_horizontal" />
 
-    <GridView
-        android:id="@+id/mylistview"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:numColumns="1"/>
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:gravity="top"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/prev_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="PREVIOUS"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="NEXT"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

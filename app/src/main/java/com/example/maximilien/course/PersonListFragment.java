@@ -2,10 +2,11 @@ package com.example.maximilien.course;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,18 +16,24 @@ import android.widget.EditText;
 import android.widget.GridView;
 
 import com.example.maximilien.course.complexlist.Person;
+import com.example.maximilien.course.complexlist.PersonFragmentPagerAdapter;
 import com.example.maximilien.course.complexlist.PersonListAdapter;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 public class PersonListFragment extends Fragment {
     public static final String LIST_PERSONS = "list_persons";
+
+    private ViewPager viewPager;
+    private PersonFragmentPagerAdapter adapter;
     private GridView mListView;
     private Button mAddPersonButton;
-
-    private PersonListAdapter adapter;
+    private Button mNextPerson;
+    private Button mPrevPerson;
 
     private ArrayList<Person> personList = new ArrayList<>();
 
@@ -53,18 +60,30 @@ public class PersonListFragment extends Fragment {
             buildPersonList();
         }
 
-        View view = inflater.inflate(R.layout.fragment_person_list, container, false);
-        mListView = (GridView) view.findViewById(R.id.mylistview);
+        final View view = inflater.inflate(R.layout.fragment_person_list, container, false);
+        viewPager = (ViewPager) view.findViewById(R.id.view_pager);
+
+//        mListView = (GridView) view.findViewById(R.id.mylistview);
         mAddPersonButton = (Button) view.findViewById(R.id.addpersonbutton);
+        mNextPerson = (Button) view.findViewById(R.id.next_button);
+        mPrevPerson = (Button) view.findViewById(R.id.prev_button);
 
-        adapter = new PersonListAdapter(getActivity(), personList);
-        mListView.setAdapter(adapter);
+        adapter = new PersonFragmentPagerAdapter(getChildFragmentManager(), personList);
+        viewPager.setAdapter(adapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mNextPerson.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Person person = personList.get(position);
-                mCallback.onItemSelected(person);
+            public void onClick(View v) {
+                int nextItem = viewPager.getCurrentItem()+1;
+                viewPager.setCurrentItem(nextItem);
+            }
+        });
+
+        mPrevPerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int currentItem = viewPager.getCurrentItem();
+                viewPager.setCurrentItem(currentItem-1);
             }
         });
 
@@ -73,8 +92,6 @@ public class PersonListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 openAlert(v);
-//                personList.add(new Person("Nom", "Prenom", Color.MAGENTA));
-//                adapter.notifyDataSetChanged();
             }
         });
 
@@ -102,6 +119,7 @@ public class PersonListFragment extends Fragment {
 
                 personList.add(new Person(firstname.getText().toString(), lastname.getText().toString(), color));
                 adapter.notifyDataSetChanged();
+                viewPager.setCurrentItem(personList.size()-1);
             }
         });
 
